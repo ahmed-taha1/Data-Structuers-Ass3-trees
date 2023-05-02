@@ -2,12 +2,12 @@
 #include "Student.cpp"
 using namespace std;
 
-struct node{
-    node* parent;
-    node* left;
-    node* right;
+struct Node{
+    Node* parent;
+    Node* left;
+    Node* right;
     Student data;
-    node(){
+    Node(){
         parent = nullptr;
         left = nullptr;
         right = nullptr;
@@ -17,11 +17,11 @@ struct node{
 
 class BST{
     private:
-        node* root;
+        Node* root;
         map<string, int> departments;
         int size;
-        node* find(int id){
-            node* curr = root;
+        Node* find(int id){
+            Node* curr = root;
             while (curr != nullptr){
                 if(curr->data.id == id)
                     break;
@@ -39,7 +39,7 @@ class BST{
         }
 
         void insert(Student value){
-            node* temp = new node();
+            Node* temp = new Node();
             temp->data = value;
             if(root == nullptr){
                 root = temp;
@@ -49,8 +49,8 @@ class BST{
                 return;
             }
 
-            node* curr = root;
-            node* parent = nullptr;
+            Node* curr = root;
+            Node* parent = nullptr;
             while (curr != nullptr){
                 parent = curr;
 
@@ -78,7 +78,7 @@ class BST{
             cout << '\n';
         }
 
-        void print(node* curr){
+        void print(Node* curr){
             if(curr == nullptr)
                 return;
             print(curr->left);
@@ -87,7 +87,7 @@ class BST{
         }
 
         bool search(int id){
-            node* temp = find(id);
+            Node* temp = find(id);
             if(temp == nullptr){
                 cout << "Student not found\n\n";
                 return 0;
@@ -100,7 +100,7 @@ class BST{
         void remove(int id){
             if(!search(id))
                 return;
-            node* temp = find(id);
+            Node* temp = find(id);
             departments[temp->data.dep]--;
             // no childs case
             if(temp->left == nullptr && temp->right == nullptr){
@@ -149,8 +149,8 @@ class BST{
 
             // two childs case
             else{
-                node* curr = temp->right;
-                node* nod = nullptr;
+                Node* curr = temp->right;
+                Node* nod = nullptr;
                 while (curr != nullptr){
                     nod = curr;
                     curr = curr -> left;
