@@ -94,6 +94,8 @@ void BST_1(){
         case 4:
             univeristy.print();
             break;
+        case 5:
+            break;
         default:
             cout << "wrong input please try again\n";
             break;
@@ -138,6 +140,8 @@ void AVL_2(){
             break;
         case 4:
             univeristy.print();
+            break;
+        case 5:
             break;
         default:
             cout << "wrong input please try again\n";
