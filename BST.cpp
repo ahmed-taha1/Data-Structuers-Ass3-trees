@@ -6,12 +6,21 @@ struct Node{
     Node* parent;
     Node* left;
     Node* right;
-    Student data;
+    Student value;
+    int height;
+    Node(Student st){
+        parent = nullptr;
+        left = nullptr;
+        right = nullptr;
+        height = 1;
+        value = st;
+    }
     Node(){
         parent = nullptr;
         left = nullptr;
         right = nullptr;
-        data = Student();
+        height = 1;
+        value = Student();
     }
 };
 
@@ -23,9 +32,9 @@ class BST{
         Node* find(int id){
             Node* curr = root;
             while (curr != nullptr){
-                if(curr->data.id == id)
+                if(curr->value.id == id)
                     break;
-                if(curr->data.id > id)
+                if(curr->value.id > id)
                     curr = curr -> left;
                 else
                     curr = curr -> right;
@@ -40,7 +49,7 @@ class BST{
 
         void insert(Student value){
             Node* temp = new Node();
-            temp->data = value;
+            temp->value = value;
             if(root == nullptr){
                 root = temp;
                 size++;
@@ -54,12 +63,12 @@ class BST{
             while (curr != nullptr){
                 parent = curr;
 
-                if(value > curr->data)
+                if(value > curr->value)
                     curr = curr->right;
                 else
                     curr = curr->left;
             }
-            if(value > parent->data)
+            if(value > parent->value)
                 parent->right = temp;
             else
                 parent->left = temp;
@@ -82,7 +91,7 @@ class BST{
             if(curr == nullptr)
                 return;
             print(curr->left);
-            cout << curr -> data << '\n';
+            cout << curr -> value << '\n';
             print(curr->right);
         }
 
@@ -93,7 +102,7 @@ class BST{
                 return 0;
             }
             cout << "Student found\n";
-            cout << temp->data;
+            cout << temp->value;
             return 1;
         }
 
@@ -101,7 +110,7 @@ class BST{
             if(!search(id))
                 return;
             Node* temp = find(id);
-            departments[temp->data.dep]--;
+            departments[temp->value.dep]--;
             // no childs case
             if(temp->left == nullptr && temp->right == nullptr){
                 if(temp->parent != nullptr)
@@ -170,7 +179,7 @@ class BST{
                     else
                         nod->parent->left = nullptr;
                 }
-                temp -> data = nod -> data;
+                temp -> value = nod -> value;
                 nod = nullptr;
                 cout << "Student has been removed\n\n";
                 size--;
