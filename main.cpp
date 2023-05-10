@@ -8,14 +8,21 @@ vector<Student> students;
 
 void BST_1();
 void AVL_2();
+void MIN_HEAP();
+void MAX_HEAP();
+
+
 int main(){
-    int n;  cin >> n;
+    string fileName = "input.in";
+    ifstream file(fileName);
+
+    int n;  file >> n;
     while (n--){
-        int id;     cin >> id;
-        cin.ignore();
-        string name;    getline(cin, name, '\n');
-        float gpa;      cin >> gpa;
-        string dep;     cin >> dep;
+        int id;     file >> id;
+        file.ignore();
+        string name;    getline(file, name, '\n');
+        float gpa;      file >> gpa;
+        string dep;     file >> dep;
         Student s(id, name, gpa, dep);
         students.push_back(s);
     }
@@ -38,6 +45,12 @@ int main(){
         case 2:
             AVL_2();
             break;
+        // case 3:
+        //     MIN_HEAP();
+        //     break;
+        // case 3:
+        //     MAX_HEAP();
+        //     break;
         default:
             cout << "wrong input please try again\n";
             break;
