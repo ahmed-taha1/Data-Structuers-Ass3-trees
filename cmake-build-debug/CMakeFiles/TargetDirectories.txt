@@ -1,0 +1,3 @@
+C:/Users/ADHAM/Desktop/AdhamCareer/FCAI/DataStructures/Data-Structuers-Ass3-trees/cmake-build-debug/CMakeFiles/Data_Structuers_Ass3_trees.dir
+C:/Users/ADHAM/Desktop/AdhamCareer/FCAI/DataStructures/Data-Structuers-Ass3-trees/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/ADHAM/Desktop/AdhamCareer/FCAI/DataStructures/Data-Structuers-Ass3-trees/cmake-build-debug/CMakeFiles/rebuild_cache.dir

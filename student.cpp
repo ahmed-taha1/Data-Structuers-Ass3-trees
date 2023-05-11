@@ -1,4 +1,5 @@
 #include <bits/stdc++.h>
+#include "Node.cpp"
 using namespace std;
 
 struct Student{

@@ -1,6 +1,8 @@
 #include <bits/stdc++.h>
 #include <unistd.h>
 #include "AVL.cpp"
+#include "student.cpp"
+#include "MAX_HEAP.cpp"
 using namespace std;
 
 
@@ -9,7 +11,7 @@ vector<Student> students;
 void BST_1();
 void AVL_2();
 void MIN_HEAP();
-void MAX_HEAP();
+//void MAX_HEAP();
 
 
 int main(){
@@ -48,9 +50,9 @@ int main(){
         // case 3:
         //     MIN_HEAP();
         //     break;
-        // case 3:
-        //     MAX_HEAP();
-        //     break;
+         case 4:
+             MAX_HEAP(students,students.size());
+             break;
         default:
             cout << "wrong input please try again\n";
             break;
