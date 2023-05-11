@@ -1,4 +1,3 @@
-#include <bits/stdc++.h>
 #include "BST.cpp"
 using namespace std;
 

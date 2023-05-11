@@ -1,4 +1,3 @@
-#include <bits/stdc++.h>
 #include <unistd.h>
 #include "maxHeap.cpp"
 using namespace std;

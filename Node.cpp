@@ -1,5 +1,6 @@
 #include <bits\stdc++.h>
-#include "Student.cpp"
+#include "student.cpp"
+
 
 struct Node{
     Node* parent;
