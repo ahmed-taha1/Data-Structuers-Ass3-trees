@@ -1,5 +1,7 @@
 #include <unistd.h>
-#include "maxHeap.cpp"
+#include "MaxHeap.h"
+#include "MinHeap.h"
+#include <fstream>
 using namespace std;
 
 
@@ -25,18 +27,17 @@ int main(){
         Student s(id, name, gpa, dep);
         students.push_back(s);
     }
-    
+
     int choose = -1;
     while (choose != 5){
         cout << "Choose Data Structure:\n";
         cout << "\t1. BST\n";
         cout << "\t2. AVL\n";
-        cout << "\t3. Min Heap\n";
-        cout << "\t4. Max Heap\n";
+        cout << "\t3. Min MaxHeap\n";
+        cout << "\t4. Max MaxHeap\n";
         cout << "\t5. Exit Program\n";
         cout << "\t>> ";
         cin >> choose;
-
         switch (choose){
         case 1:
             BST_1();
@@ -44,12 +45,12 @@ int main(){
         case 2:
             AVL_2();
             break;
-        // case 3:
-        //     MIN_HEAP();
-        //     break;
-        // case 3:
-        //     MAX_HEAP();
-        //     break;
+         case 3:
+             MIN_HEAP();
+             break;
+         case 4:
+             MAX_HEAP();
+             break;
         default:
             cout << "wrong input please try again\n";
             break;
@@ -62,7 +63,7 @@ void BST_1(){
     BST univeristy;
     for(auto student : students)
         univeristy.insert(student);
-    system("cls");
+   // system("cls");
     int choose = -1;
     while (choose != 5){
         cout << "Choose one of the following options:\n";
@@ -100,7 +101,7 @@ void BST_1(){
             break;
         }
         cout << "please wait...\n";
-        sleep(5);
+        sleep(2);
     }
 }
 
@@ -109,7 +110,7 @@ void AVL_2(){
     AVLTree univeristy;
     for(auto student : students)
         univeristy.insert(student);
-    system("cls");
+    //system("cls");
     int choose = -1;
     while (choose != 5){
         cout << "Choose one of the following options:\n";
@@ -147,6 +148,80 @@ void AVL_2(){
             break;
         }
         cout << "please wait...\n";
-        sleep(5);
+        sleep(2);
+    }
+}
+
+void MAX_HEAP(){
+    int id;  string name, dep, enter;  float gpa;
+    MaxHeap univeristy;
+    for(auto student : students)
+        univeristy.push(student);
+    //system("cls");
+    int choose = -1;
+    while (choose != 3){
+        cout << "Choose one of the following options:\n";
+        cout << "\t1. Add student\n";
+        cout << "\t2. Print All (sorted by GPA)\n";
+        cout << "\t3. Return to main menu\n";
+        cout << "\t>> ";    cin >> choose;
+
+        switch (choose){
+            case 1:
+                cout << "id: ";     cin >> id;
+                cin.ignore();
+                cout << "Name: ";   getline(cin, name, '\n');
+                cout << "GPA: ";    cin >> gpa;
+                cout << "Department: "; cin >> dep;
+                univeristy.push( Student(id, name, gpa, dep) );
+                break;
+            case 2:
+                univeristy.print();
+                break;
+            case 3:
+                break;
+            default:
+                cout << "wrong input please try again\n";
+                break;
+        }
+        cout << "please wait...\n";
+        sleep(2);
+    }
+}
+
+void MIN_HEAP(){
+    int id;  string name, dep, enter;  float gpa;
+    MinHeap univeristy;
+    for(auto student : students)
+        univeristy.push(student);
+    //system("cls");
+    int choose = -1;
+    while (choose != 3){
+        cout << "Choose one of the following options:\n";
+        cout << "\t1. Add student\n";
+        cout << "\t2. Print All (sorted by GPA)\n";
+        cout << "\t3. Return to main menu\n";
+        cout << "\t>> ";    cin >> choose;
+
+        switch (choose){
+            case 1:
+                cout << "id: ";     cin >> id;
+                cin.ignore();
+                cout << "Name: ";   getline(cin, name, '\n');
+                cout << "GPA: ";    cin >> gpa;
+                cout << "Department: "; cin >> dep;
+                univeristy.push( Student(id, name, gpa, dep) );
+                break;
+            case 2:
+                univeristy.print();
+                break;
+            case 3:
+                break;
+            default:
+                cout << "wrong input please try again\n";
+                break;
+        }
+        cout << "please wait...\n";
+        sleep(2);
     }
 }
